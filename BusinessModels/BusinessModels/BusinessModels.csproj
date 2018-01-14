@@ -47,6 +47,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="LocalizationModel\LocalizationModel.cs" />
     <Compile Include="PackageBusinessModel\PackageDetails.cs" />
+    <Compile Include="PackageBusinessModel\PackageProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
