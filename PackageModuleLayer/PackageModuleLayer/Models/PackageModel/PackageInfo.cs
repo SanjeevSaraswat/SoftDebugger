@@ -67,6 +67,7 @@ namespace Listener.Models.PackageModel
                 _logger.addMessage.Add("GetPackageDetails", "Get Package Details Get successfully");
                 dtPackageList.Tables[0].TableName = "BasicPackageDetails";
                 dtPackageList.Tables[1].TableName = "BasicPackageCreteria";
+                dtPackageList.Tables[2].TableName = "PackageCancellationPolicy";
                 string JSONResult = CommonUtility.DataSettoJSON(dtPackageList);
                 _logger.addMessage.Add("GetPackageDetails", "Converted JSON Result" + JSONResult);
                 return JSONResult;

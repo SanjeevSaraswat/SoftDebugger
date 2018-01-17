@@ -11,6 +11,8 @@ namespace PackageBusinessModel.Models
         public BasicPackageDetails BasicPackageDetails { get; set; }
 
         public BasicPackageCreteria BasicPackageCreteria { get; set; }
+
+        public PackageCancellationPolicy PackageCancellationPolicy { get; set; }
     }
     public class BasicPackageDetails
     {

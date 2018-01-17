@@ -31,18 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BusinessModels">
-      <HintPath>..\..\BusinessModels\BusinessModels\bin\Debug\BusinessModels.dll</HintPath>
-    </Reference>
-    <Reference Include="CommonUtilities">
-      <HintPath>..\..\CommonUtilities\CommonUtilities\bin\Debug\CommonUtilities.dll</HintPath>
-    </Reference>
-    <Reference Include="Connector">
-      <HintPath>..\..\Connector\bin\Debug\Connector.dll</HintPath>
-    </Reference>
-    <Reference Include="SoftLogger">
-      <HintPath>..\..\SoftLogger\bin\Debug\SoftLogger.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Extensions" />
@@ -56,10 +44,30 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Models\PackageModel\CreatePackage.cs" />
+    <Compile Include="Models\PackageModel\ManagePackageCancellationPolicy.cs" />
     <Compile Include="Models\PackageModel\ManagePackageImages.cs" />
+    <Compile Include="Models\PackageModel\ManagePackageProducts.cs" />
     <Compile Include="Models\PackageModel\PackageInfo.cs" />
     <Compile Include="Models\PackageModel\PackageListAutoComplete.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BusinessModels\BusinessModels\BusinessModels.csproj">
+      <Project>{321de1dd-859a-4245-b20a-2f7b4c5d555d}</Project>
+      <Name>BusinessModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CommonUtilities\CommonUtilities\CommonUtilities.csproj">
+      <Project>{a049d82f-0892-4abb-a229-c032effb6fcd}</Project>
+      <Name>CommonUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Connector\Connector.csproj">
+      <Project>{88889150-91e1-4ad1-91a5-4b8397e0c473}</Project>
+      <Name>Connector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SoftLogger\SoftLogger.csproj">
+      <Project>{c9dd7933-602b-4b09-a066-4365e7a8611a}</Project>
+      <Name>SoftLogger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

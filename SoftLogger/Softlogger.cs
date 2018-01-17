@@ -105,7 +105,7 @@ namespace SoftLoggerAPI
             }
          
             
-            path = path + DateTime.Now.ToString("MMM-yyyy") + "\\" + AssemblyName + "\\";
+            path = path + DateTime.Now.ToString("MMM-yyyy") + "\\" + AssemblyName + "\\"+ DateTime.Now.ToString("dd-MMM-yyyy")+"\\";
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);

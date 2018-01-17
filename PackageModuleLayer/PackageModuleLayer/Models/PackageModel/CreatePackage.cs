@@ -80,12 +80,12 @@ namespace Listener.Models.PackageModel
 
                 IConnector objConnector = new Connector();
                 bool status = objConnector.ExecuteNonQuery("PackageModule", "FSP_InsertPackageDetails", objparamlist);
-                _logger.addMessage.Add("Registeruser", "Agent User sign up successfully");
+                _logger.addMessage.Add("AddPackage", "Package Detail Inserted or updated succesfully.");
             }
             catch (Exception ex)
             {
                 _logger.ExceptionError = true;
-                _logger.addMessage.Add("Registeruser", "Error during Register user Method Execution:" + ex.ToString());
+                _logger.addMessage.Add("AddPackage", "Error during AddPackage  Method Execution:" + ex.ToString());
                 
             }
             finally
