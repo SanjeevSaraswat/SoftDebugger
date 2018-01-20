@@ -10,7 +10,7 @@ namespace BusinessModels.AdminManagement
     /// <summary>
     /// This class will contain all the details about Company
     /// </summary>
-    class CompanyDetails
+  public  class CompanyDetails
     {
 
         [Required]
@@ -18,18 +18,18 @@ namespace BusinessModels.AdminManagement
         public string CompanyID { get; set; }
 
         [Required]
-        [MaxLength(100)]
+        [MaxLength(500)]
         public string CompanyName { get; set; }
 
         [Required]
-        [MaxLength(100)]
+        [MaxLength(500)]
         public string CompanyAddress { get; set; }
         [Required]
         [MaxLength(2)]
-        public string CompanyCountry { get; set; }
+        public string Country { get; set; }
         [Required]
         [MaxLength(3)]
-        public string CompanyCurrency { get; set; }
+        public string CurrencyCode { get; set; }
         [Required]
         [MaxLength(5)]
         public string DefaultLanguage { get; set; }
@@ -40,11 +40,21 @@ namespace BusinessModels.AdminManagement
 
         [Required]
         [DataType(DataType.PhoneNumber)]
-        public string CompanyContact { get; set; }
+        public string Phone { get; set; }
 
+        public string FAX { get; set; }
 
         [Required]
         [DataType(DataType.PostalCode)]
         public string CompanyPostalCode { get; set; }
+
+
+        public string CompanyWebsite { get; set; }
+
+        public string CompanyTANNumber { get; set; }
+
+        public string CompanyPANNumber { get; set; }
+
+        public string CompanyLogoURL { get; set; }
     }
 }

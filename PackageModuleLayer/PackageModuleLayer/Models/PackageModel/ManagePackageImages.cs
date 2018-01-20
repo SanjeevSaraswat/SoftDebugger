@@ -82,6 +82,7 @@ namespace Listener.Models.PackageModel
                         objPackageImages.PackageCode = PackageCode;
                         objPackageImages.PackageImageName = dtPackageImageList.Rows[i]["Name"].ToString();
                         objPackageImages.PackageImageTitle = dtPackageImageList.Rows[i]["Title"].ToString();
+                        objPackageImages.PackageVirtualImage = Convert.ToBoolean(dtPackageImageList.Rows[i]["PackageVirtualImage"]);
                         objlstPackageImages.Add(objPackageImages);
                     }
 
@@ -102,6 +103,73 @@ namespace Listener.Models.PackageModel
                 AsyncLogger.LogMessage(_logger);
             }
             return objlstPackageImages;
+        }
+
+
+        public void SetDefaultVirtualImage(PackageImages objPackageImages)
+        {
+
+            try
+            {
+                _logger.addMessage.Add("SetDefaultVirtualImage", "SetDefaultVirtualImage Method is going to Execute");
+                Dictionary<string, object> objparamlist = new Dictionary<string, object>();
+                _logger.addMessage.Add("CompanyID", objPackageImages.CompanyID);
+                objparamlist.Add("CompanyID", objPackageImages.CompanyID);
+
+                _logger.addMessage.Add("PackageCode", objPackageImages.PackageCode);
+                objparamlist.Add("PackageCode", objPackageImages.PackageCode);
+
+                _logger.addMessage.Add("PackageImageName", objPackageImages.PackageImageName);
+                objparamlist.Add("PackageImageName", objPackageImages.PackageImageName);
+
+            
+
+                IConnector objConnector = new Connector();
+                bool status = objConnector.ExecuteNonQuery("PackageModule", "FSP_SetVirtualImage", objparamlist);
+                _logger.addMessage.Add("SetDefaultVirtualImage", "Package Default Image Selected Successfully");
+            }
+            catch (Exception ex)
+            {
+
+                _logger.addMessage.Add("SetDefaultVirtualImage", "Error during Set Default Package Images Method Execution:" + ex.ToString());
+            }
+            finally
+            {
+                AsyncLogger.LogMessage(_logger);
+            }
+        }
+
+        public void DeletePackageImage(PackageImages objPackageImages)
+        {
+
+            try
+            {
+                _logger.addMessage.Add("DeletePackageImage", "DeletePackageImage Method is going to Execute");
+                Dictionary<string, object> objparamlist = new Dictionary<string, object>();
+                _logger.addMessage.Add("CompanyID", objPackageImages.CompanyID);
+                objparamlist.Add("CompanyID", objPackageImages.CompanyID);
+
+                _logger.addMessage.Add("PackageCode", objPackageImages.PackageCode);
+                objparamlist.Add("PackageCode", objPackageImages.PackageCode);
+
+                _logger.addMessage.Add("PackageImageName", objPackageImages.PackageImageName);
+                objparamlist.Add("PackageImageName", objPackageImages.PackageImageName);
+
+
+
+                IConnector objConnector = new Connector();
+                bool status = objConnector.ExecuteNonQuery("PackageModule", "FSP_DeleteImage", objparamlist);
+                _logger.addMessage.Add("DeletePackageImage", "Package Image deleted Successfully");
+            }
+            catch (Exception ex)
+            {
+
+                _logger.addMessage.Add("DeletePackageImage", "Error during delete Package Images Method Execution:" + ex.ToString());
+            }
+            finally
+            {
+                AsyncLogger.LogMessage(_logger);
+            }
         }
     }
 }

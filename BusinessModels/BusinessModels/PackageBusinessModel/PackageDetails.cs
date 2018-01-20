@@ -100,7 +100,7 @@ namespace PackageBusinessModel.Models
 
         //reminder will start from this day
         public string PackagePaymentCutOffDate { get; set; }
-      
+
         //will be in % only
         public string Discountonfullpayment { get; set; }
     }
@@ -112,6 +112,8 @@ namespace PackageBusinessModel.Models
         public string PackageImageName { get; set; }
 
         public string PackageImageTitle { get; set; }
+
+        public bool PackageVirtualImage { get; set; }
         public string Browser { get; set; }
 
         public string OriginalImagePath { get; set; }

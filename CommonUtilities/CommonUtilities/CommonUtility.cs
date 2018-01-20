@@ -61,6 +61,34 @@ namespace PackageModule.Utilities
         }
 
 
+      /// <summary>
+      /// This function will return JSON String Data with added one required index type column
+      /// Sanjeev Saraswat(20-01-2017)
+      /// </summary>
+      /// <param name="dtPackageList">DataTable</param>
+      /// <param name="ColumnName">Column Name which you want to add(Optional Default will added Index)</param>
+      /// <param name="startvalue">Index start value(Optional default will start from 0)</param>
+      /// <returns>string jSON</returns>
+        public static string GetDataTableToJSONWithAddedIndex(DataTable dtPackageList,string ColumnName="Index",int startvalue=0)
+        {
+            JavaScriptSerializer jsSerializer = new JavaScriptSerializer();
+            List<Dictionary<string, object>> parentRow = new List<Dictionary<string, object>>();
+            Dictionary<string, object> childRow;
+            foreach (DataRow row in dtPackageList.Rows)
+            {
+                childRow = new Dictionary<string, object>();
+                foreach (DataColumn col in dtPackageList.Columns)
+                {
+                    childRow.Add(col.ColumnName, row[col]);
+                }
+                childRow.Add(ColumnName, startvalue++);
+                parentRow.Add(childRow);
+            }
+            string JSONResult = jsSerializer.Serialize(parentRow);
+            return JSONResult;
+        }
+
+
         /// <summary>
         /// This function will resturn JSON Index
         /// </summary>
