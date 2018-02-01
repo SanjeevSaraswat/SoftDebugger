@@ -18,7 +18,7 @@ namespace SoftLoggerAPI
         /// </summary>
         public bool ExceptionError { get; set; }
         public string FileCollector { get; set; }
-        public static void LogMessage(AsyncLogger Logger,string TokenID="")
+        public static void LogMessage(AsyncLogger Logger,string TokenID="",string AssemblyName= "Listener")
         {
             if (!Logger.ExceptionError)
             {
@@ -45,7 +45,7 @@ namespace SoftLoggerAPI
                                 {
                                     doc.Add(new XElement("ApiLog",
                              new XElement("Request", item.ToString().Replace(" ", "") + "" + i++ + ""),
-                             new XElement("Response", XDocument.Parse(LoggerCollection["" + item + ""].ToString()).Root)));
+                             new XElement("Response", XDocument.Parse(Convert.ToString(LoggerCollection["" + item + ""])).Root)));
                                 }
                             }
                             strlog.Append(doc.ToString());
@@ -67,7 +67,7 @@ namespace SoftLoggerAPI
                                 SoftLogger.WriteLogImmediate("Error Mail Send Successfully", Logger.FileCollector, "Listener");
                             }
                         }
-                        SoftLogger.WriteLogImmediate(strlog.ToString(), Logger.FileCollector, "Listener");
+                        SoftLogger.WriteLogImmediate(strlog.ToString(), Logger.FileCollector, AssemblyName);
                     }
                 });
 
