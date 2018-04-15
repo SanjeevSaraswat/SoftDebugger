@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Script.Serialization;
 using PackageModule.Utilities;
+using BusinessModels.PackageBusinessModel;
 
 namespace Listener.Models.PackageModel
 {
@@ -55,6 +56,49 @@ namespace Listener.Models.PackageModel
             catch (Exception ex)
             {
                 _logger.addMessage.Add("GetPackageList", "Error during GetPackageList Method Execution:" + ex.ToString());
+
+            }
+            finally
+            {
+                AsyncLogger.LogMessage(_logger);
+
+            }
+            return null;
+        }
+
+
+        public string GetAirportList(AirportList objAirportList)
+        {
+
+            try
+            {
+                _logger.addMessage.Add("GetAirportList", "GetAirportList Method is going to Execute");
+                Dictionary<string, object> objparamlist = new Dictionary<string, object>();
+
+                _logger.addMessage.Add("CompanyID", objAirportList.CompanyID);
+                objparamlist.Add("CompanyID", objAirportList.CompanyID);
+
+                //_logger.addMessage.Add("LanguageCode", objPackageList.PackageLanguage);
+                //objparamlist.Add("LanguageCode", objPackageList.PackageLanguage);
+
+                _logger.addMessage.Add("Query", objAirportList.query);
+                objparamlist.Add("Query", objAirportList.query);
+
+
+                _logger.addMessage.Add("GetAirportList", "FSP_GetAirportList is going to call");
+
+                IConnector objConnector = new Connector();
+                DataTable dtPackageList = objConnector.ExecuteDataTable("CompanyAdmin", "FSP_GetAirportList", objparamlist);
+                _logger.addMessage.Add("GetAirportList", "Get Airport List successfully");
+
+                string JSONResult = CommonUtility.GetDataTableToJSON(dtPackageList);
+                _logger.addMessage.Add("GetAirportList", "Converted JSON Result" + JSONResult);
+                return JSONResult;
+
+            }
+            catch (Exception ex)
+            {
+                _logger.addMessage.Add("GetAirportList", "Error during GetAirportList Method Execution:" + ex.ToString());
 
             }
             finally
