@@ -46,6 +46,8 @@
     <Compile Include="AdminManagement\CompanyDetails.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="LocalizationModel\LocalizationModel.cs" />
+    <Compile Include="PackageBusinessModel\AirportList.cs" />
+    <Compile Include="PackageBusinessModel\PackageCostingBridgeModel.cs" />
     <Compile Include="PackageBusinessModel\PackageDetails.cs" />
     <Compile Include="PackageBusinessModel\PackageProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -31,10 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonUtilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CommonUtilities\CommonUtilities\bin\Debug\CommonUtilities.dll</HintPath>
-    </Reference>
     <Reference Include="SoftLogger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\CurrencyConvertor\CurrencyConvertor\bin\Debug\SoftLogger.dll</HintPath>
@@ -53,6 +49,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Models\PackageModel\CreatePackage.cs" />
     <Compile Include="Models\PackageModel\ManagePackageCancellationPolicy.cs" />
+    <Compile Include="Models\PackageModel\ManagePackageHotelCosting.cs" />
     <Compile Include="Models\PackageModel\ManagePackageImages.cs" />
     <Compile Include="Models\PackageModel\ManagePackageProducts.cs" />
     <Compile Include="Models\PackageModel\PackageInfo.cs" />
@@ -63,6 +60,10 @@
     <ProjectReference Include="..\..\BusinessModels\BusinessModels\BusinessModels.csproj">
       <Project>{321de1dd-859a-4245-b20a-2f7b4c5d555d}</Project>
       <Name>BusinessModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CommonUtilities\CommonUtilities\CommonUtilities.csproj">
+      <Project>{a049d82f-0892-4abb-a229-c032effb6fcd}</Project>
+      <Name>CommonUtilities</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Connector\Connector.csproj">
       <Project>{88889150-91e1-4ad1-91a5-4b8397e0c473}</Project>
