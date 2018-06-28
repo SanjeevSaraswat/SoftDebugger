@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace SoftLoggerAPI
 {
   public   class SoftLogger
     {
+        private const string V = "Listner";
         private static object _synRoot = new object();
 
         public  NameValueCollection addMessage { get; set; }
@@ -120,5 +122,21 @@ namespace SoftLoggerAPI
 
         }
 
+
+        public static void LogEventVwr(string logerrorName, string ErrorMessage, string StackTrace = "")
+        {
+
+            EventLog objEventLog = new EventLog();
+            string sourceName = V;
+            string logName = logerrorName;
+            if (!(EventLog.SourceExists(sourceName)))
+            {
+                EventLog.CreateEventSource(sourceName, logName);
+            }
+            objEventLog.Source = sourceName;
+            string message = String.Format("Message: {0} \n StackTrace:{1} \n Date/ Time: {2}", ErrorMessage, StackTrace, DateTime.Now.ToString());
+            objEventLog.WriteEntry(message, EventLogEntryType.Error);
+
+        }
     }
 }

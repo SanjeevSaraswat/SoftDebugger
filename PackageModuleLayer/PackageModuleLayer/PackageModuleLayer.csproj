@@ -31,11 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SoftLogger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CurrencyConvertor\CurrencyConvertor\bin\Debug\SoftLogger.dll</HintPath>
-    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
@@ -68,6 +66,10 @@
     <ProjectReference Include="..\..\Connector\Connector.csproj">
       <Project>{88889150-91e1-4ad1-91a5-4b8397e0c473}</Project>
       <Name>Connector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SoftLogger\SoftLogger.csproj">
+      <Project>{c9dd7933-602b-4b09-a066-4365e7a8611a}</Project>
+      <Name>SoftLogger</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

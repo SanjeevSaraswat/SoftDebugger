@@ -44,7 +44,7 @@ namespace Listener.Models.PackageModel
             }
             catch (Exception ex)
             {
-
+                AsyncLogger.LogEventVwr("UpdatePackageHotelCosting", ex.ToString(), ex.StackTrace);
                 _logger.addMessage.Add("AddPackageImages", "Error during Add Package Images Method Execution:" + ex.ToString());
             }
             finally
@@ -95,7 +95,7 @@ namespace Listener.Models.PackageModel
             }
             catch (Exception ex)
             {
-
+                AsyncLogger.LogEventVwr("UpdatePackageHotelCosting", ex.ToString(), ex.StackTrace);
                 _logger.addMessage.Add("GetPackageImages", "Error during Get Package Images Method Execution:" + ex.ToString());
             }
             finally
@@ -130,7 +130,7 @@ namespace Listener.Models.PackageModel
             }
             catch (Exception ex)
             {
-
+                AsyncLogger.LogEventVwr("UpdatePackageHotelCosting", ex.ToString(), ex.StackTrace);
                 _logger.addMessage.Add("SetDefaultVirtualImage", "Error during Set Default Package Images Method Execution:" + ex.ToString());
             }
             finally
@@ -163,7 +163,7 @@ namespace Listener.Models.PackageModel
             }
             catch (Exception ex)
             {
-
+                AsyncLogger.LogEventVwr("UpdatePackageHotelCosting", ex.ToString(), ex.StackTrace);
                 _logger.addMessage.Add("DeletePackageImage", "Error during delete Package Images Method Execution:" + ex.ToString());
             }
             finally

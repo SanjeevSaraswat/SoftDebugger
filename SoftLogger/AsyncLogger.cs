@@ -1,6 +1,8 @@
 ﻿
 using System;
 using System.Collections.Specialized;
+using System.Configuration;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -10,6 +12,7 @@ namespace SoftLoggerAPI
 {
     public class AsyncLogger
     {
+        private const string V = "Listner";
         private static object _synRoot = new object();
 
         public NameValueCollection addMessage { get; set; }
@@ -73,6 +76,22 @@ namespace SoftLoggerAPI
 
             }
 
+        }
+
+        public static void LogEventVwr(string logerrorName,string ErrorMessage,string StackTrace="")
+        {
+            
+                EventLog objEventLog = new EventLog();
+                string sourceName = V;
+                string logName = logerrorName;
+                if (!(EventLog.SourceExists(sourceName)))
+                {
+                    EventLog.CreateEventSource(sourceName, logName);
+                }
+                objEventLog.Source = sourceName;
+                string message = String.Format("Message: {0} \n StackTrace:{1} \n Date/ Time: {2}", ErrorMessage, StackTrace, DateTime.Now.ToString());
+                objEventLog.WriteEntry(message, EventLogEntryType.Error);
+            
         }
     }
 }

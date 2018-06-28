@@ -107,7 +107,9 @@ namespace PackageBusinessModel.Models
 
     public class PackageImages
     {
-        public string PackageCode { get; set; }
+        private string _packageCode;
+
+        public string PackageCode { get => _packageCode; set => _packageCode = value; }
         public string CompanyID { get; set; }
         public string PackageImageName { get; set; }
 
